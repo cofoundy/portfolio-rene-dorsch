@@ -4,54 +4,58 @@ import { siteConfig } from "../config";
 
 const totalPapers = siteConfig.publications.reduce((sum, yr) => sum + yr.papers.length, 0);
 const totalAwards = siteConfig.publications.reduce(
-  (sum, yr) => sum + yr.papers.filter((p) => p.award).length,
-  0
+  (sum, yr) => sum + yr.papers.filter((p) => p.award).length, 0
 );
 const venues = new Set(siteConfig.publications.flatMap((yr) => yr.papers.map((p) => p.venue)));
 ---
 
 <Layout title="Writer" currentPage="/writer/">
-  <section class="pt-8 pb-16 px-4">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="reveal text-3xl font-bold tracking-tight mb-10" style="color: var(--color-primary-dark);">Publications</h2>
+  <section class="pt-12 pb-20 px-4">
+    <div class="max-w-5xl mx-auto">
+      <div class="reveal section-label mb-3">Academic Output</div>
+      <h2 class="reveal text-3xl sm:text-4xl font-bold tracking-tight mb-4" style="color: var(--color-primary-dark);">Publications</h2>
+      <div class="accent-divider reveal mb-12"></div>
 
-      <!-- Stats -->
-      <div class="reveal flex flex-wrap justify-center gap-10 mb-12 py-6 rounded-xl" style="background-color: var(--color-surface);">
-        <div class="text-center">
-          <div class="text-3xl font-bold" style="font-family: 'Space Grotesk'; color: var(--color-primary-dark);">{totalPapers}</div>
-          <div class="text-xs uppercase tracking-widest" style="color: var(--color-primary-light);">Papers</div>
+      <!-- Stats bar -->
+      <div class="reveal grid grid-cols-3 gap-4 mb-14">
+        <div class="stat-card glass-card-solid p-6 text-center">
+          <div class="text-3xl sm:text-4xl font-bold" style="font-family: 'Space Grotesk'; color: var(--color-primary-dark);">{totalPapers}</div>
+          <div class="text-[0.65rem] uppercase tracking-widest font-medium mt-1" style="color: var(--color-primary-light);">Papers</div>
         </div>
-        <div class="text-center">
-          <div class="text-3xl font-bold" style="font-family: 'Space Grotesk'; color: var(--color-accent);">{totalAwards}</div>
-          <div class="text-xs uppercase tracking-widest" style="color: var(--color-primary-light);">Awards</div>
+        <div class="stat-card glass-card-solid p-6 text-center">
+          <div class="text-3xl sm:text-4xl font-bold" style="font-family: 'Space Grotesk'; color: var(--color-accent);">{totalAwards}</div>
+          <div class="text-[0.65rem] uppercase tracking-widest font-medium mt-1" style="color: var(--color-primary-light);">Awards</div>
         </div>
-        <div class="text-center">
-          <div class="text-3xl font-bold" style="font-family: 'Space Grotesk'; color: var(--color-primary-dark);">{venues.size}+</div>
-          <div class="text-xs uppercase tracking-widest" style="color: var(--color-primary-light);">Venues</div>
+        <div class="stat-card glass-card-solid p-6 text-center">
+          <div class="text-3xl sm:text-4xl font-bold" style="font-family: 'Space Grotesk'; color: var(--color-primary-dark);">{venues.size}+</div>
+          <div class="text-[0.65rem] uppercase tracking-widest font-medium mt-1" style="color: var(--color-primary-light);">Venues</div>
         </div>
       </div>
 
       <!-- Publications by year -->
       {siteConfig.publications.map((yearGroup) => (
-        <div class="mb-10">
-          <h3 class="reveal text-lg font-bold font-mono mb-4" style="color: var(--color-primary-dark);">{yearGroup.year}</h3>
+        <div class="mb-12">
+          <div class="reveal flex items-center gap-4 mb-6">
+            <span class="text-2xl font-bold font-mono" style="color: var(--color-primary-dark);">{yearGroup.year}</span>
+            <div class="flex-1 h-px" style="background: var(--color-surface);"></div>
+            <span class="text-xs font-mono" style="color: var(--color-primary-light);">{yearGroup.papers.length} paper{yearGroup.papers.length > 1 ? 's' : ''}</span>
+          </div>
           <div class="space-y-3">
             {yearGroup.papers.map((paper, i) => (
-              <div class={`reveal pub-card rounded-lg p-5 stagger-${Math.min(i + 1, 6)} ${paper.award ? 'award' : ''}`} style="background-color: var(--color-surface-light);">
-                <div class="flex items-start gap-3">
-                  <div class="flex-1">
-                    <h4 class="text-sm font-semibold leading-snug mb-1" style="color: var(--color-primary-dark);">
-                      {paper.title}
-                    </h4>
-                    <p class="text-xs font-mono mb-1" style="color: var(--color-accent);">{paper.venue}</p>
-                    <p class="text-xs" style="color: var(--color-primary-light);">{paper.authors}</p>
-                    {paper.award && (
-                      <span class="inline-block mt-2 text-xs font-bold px-2 py-0.5 rounded-full" style="background: var(--color-accent); color: var(--color-primary-dark);">
-                        &#9733; {paper.award}
-                      </span>
-                    )}
-                  </div>
+              <div class={`reveal pub-card glass-card-solid p-5 sm:p-6 stagger-${Math.min(i + 1, 6)} ${paper.award ? 'award' : ''}`}>
+                <h4 class="text-sm sm:text-base font-semibold leading-snug mb-2" style="color: var(--color-primary-dark);">
+                  {paper.title}
+                </h4>
+                <div class="flex flex-wrap items-center gap-x-4 gap-y-1">
+                  <span class="text-xs font-mono font-semibold" style="color: var(--color-accent);">{paper.venue}</span>
+                  <span class="text-xs" style="color: var(--color-primary-light);">{paper.authors}</span>
                 </div>
+                {paper.award && (
+                  <div class="mt-3 inline-flex items-center gap-2 text-xs font-bold px-3 py-1.5 rounded-lg" style="background: var(--color-accent); color: var(--color-primary-dark);">
+                    <span>&#9733;</span>
+                    {paper.award}
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -59,11 +63,11 @@ const venues = new Set(siteConfig.publications.flatMap((yr) => yr.papers.map((p)
       ))}
 
       <!-- Key Venues -->
-      <div class="reveal mt-8 text-center">
-        <p class="text-xs uppercase tracking-widest font-bold mb-3" style="color: var(--color-primary-light);">Key Venues</p>
-        <div class="flex flex-wrap justify-center gap-2">
+      <div class="reveal mt-16 glass-card-solid p-8 text-center">
+        <p class="section-label justify-center mb-5">Key Venues</p>
+        <div class="flex flex-wrap justify-center gap-3">
           {["ESWC", "ACM IoT", "ICPM", "KGSWC", "CAiSE", "APMS"].map((venue) => (
-            <span class="text-xs font-mono px-3 py-1 rounded-full" style="background: var(--color-surface); color: var(--color-primary);">
+            <span class="text-sm font-mono px-5 py-2 rounded-xl font-medium" style="background: var(--color-surface); color: var(--color-primary);">
               {venue}
             </span>
           ))}

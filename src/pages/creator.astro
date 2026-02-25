@@ -4,60 +4,80 @@ import { siteConfig } from "../config";
 ---
 
 <Layout title="Creator" currentPage="/creator/">
-  <section class="pt-8 pb-16 px-4">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="reveal text-3xl font-bold tracking-tight mb-4" style="color: var(--color-primary-dark);">Creator</h2>
-      <p class="reveal text-base leading-relaxed mb-12 max-w-2xl" style="color: var(--color-primary);">
+  <section class="pt-12 pb-20 px-4">
+    <div class="max-w-5xl mx-auto">
+      <div class="reveal section-label mb-3">Making Things</div>
+      <h2 class="reveal text-3xl sm:text-4xl font-bold tracking-tight mb-4" style="color: var(--color-primary-dark);">Creator</h2>
+      <div class="accent-divider reveal mb-6"></div>
+      <p class="reveal text-lg leading-relaxed mb-14 max-w-2xl" style="color: var(--color-primary);">
         {siteConfig.creator.intro}
       </p>
 
       <!-- Forging -->
-      <div class="reveal mb-12">
-        <div class="rounded-xl overflow-hidden" style="background-color: var(--color-surface);">
-          <div class="p-8">
-            <div class="flex items-center gap-3 mb-4">
-              <svg class="w-8 h-8" style="color: var(--color-accent);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+      <div class="reveal glass-card-solid overflow-hidden mb-8 relative">
+        <div class="absolute top-0 left-0 right-0 h-1" style="background: linear-gradient(90deg, var(--color-accent), transparent);"></div>
+        <div class="p-8 sm:p-10">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: var(--color-accent-dim);">
+              <svg class="w-6 h-6" style="color: var(--color-accent);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.047 8.287 8.287 0 009 9.601a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 00.495-7.468 5.99 5.99 0 00-1.925 3.547 5.975 5.975 0 01-2.133-1.001A3.75 3.75 0 0012 18z" />
               </svg>
-              <h3 class="text-xl font-bold" style="color: var(--color-primary-dark);">{siteConfig.creator.forging.title}</h3>
             </div>
-            <p class="text-sm leading-relaxed" style="color: var(--color-primary);">
-              {siteConfig.creator.forging.description}
-            </p>
+            <div>
+              <h3 class="text-xl font-bold" style="color: var(--color-primary-dark);">{siteConfig.creator.forging.title}</h3>
+              <p class="text-xs font-mono" style="color: var(--color-primary-light);">Metallbau Dorsch GmbH &middot; Since 2007</p>
+            </div>
           </div>
+          <p class="text-base leading-relaxed" style="color: var(--color-primary);">
+            {siteConfig.creator.forging.description}
+          </p>
         </div>
       </div>
 
       <!-- 3D Printing -->
-      <div class="reveal">
-        <div class="rounded-xl overflow-hidden" style="background-color: var(--color-surface);">
-          <div class="p-8">
-            <div class="flex items-center gap-3 mb-4">
-              <svg class="w-8 h-8" style="color: var(--color-accent);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+      <div class="reveal glass-card-solid overflow-hidden mb-8 relative">
+        <div class="absolute top-0 left-0 right-0 h-1" style="background: linear-gradient(90deg, var(--color-primary-light), transparent);"></div>
+        <div class="p-8 sm:p-10">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: rgba(107, 100, 96, 0.1);">
+              <svg class="w-6 h-6" style="color: var(--color-primary-light);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
               </svg>
+            </div>
+            <div>
               <h3 class="text-xl font-bold" style="color: var(--color-primary-dark);">{siteConfig.creator.printing.title}</h3>
+              <p class="text-xs font-mono" style="color: var(--color-primary-light);">Digital fabrication &middot; CAD to physical</p>
             </div>
-            <p class="text-sm leading-relaxed mb-6" style="color: var(--color-primary);">
-              {siteConfig.creator.printing.description}
-            </p>
-            <div class="flex flex-wrap gap-2">
-              {["Siemens NX", "Creo", "Cura", "Orca Slicer"].map((tool) => (
-                <span class="skill-tag text-xs px-3 py-1 rounded-full font-medium" style="background: var(--color-surface-light); color: var(--color-primary);">
-                  {tool}
-                </span>
-              ))}
-            </div>
+          </div>
+          <p class="text-base leading-relaxed mb-6" style="color: var(--color-primary);">
+            {siteConfig.creator.printing.description}
+          </p>
+          <div class="flex flex-wrap gap-2">
+            {["Siemens NX", "Creo", "Cura", "Orca Slicer"].map((tool) => (
+              <span class="skill-tag text-xs px-4 py-1.5 rounded-lg font-medium" style="background: var(--color-surface); color: var(--color-primary);">
+                {tool}
+              </span>
+            ))}
           </div>
         </div>
       </div>
 
-      <!-- Connection -->
-      <div class="reveal mt-12 text-center p-8 rounded-xl" style="background: var(--color-primary-dark); color: var(--color-surface);">
-        <p class="text-sm leading-relaxed max-w-lg mx-auto opacity-80">
-          Whether shaping hot metal at the anvil or materializing a CAD model layer by layer, the satisfaction of turning an idea into a physical object remains the same. The metalworker in me never left &mdash; he just learned new tools.
-        </p>
+      <!-- Quote / Connection -->
+      <div class="reveal mt-14 relative overflow-hidden rounded-2xl" style="background: var(--color-primary-dark);">
+        <div class="absolute top-0 left-0 right-0 h-1" style="background: linear-gradient(90deg, var(--color-accent), var(--color-primary-light), transparent);"></div>
+        <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(rgba(171,219,149,1) 1px, transparent 1px); background-size: 20px 20px;"></div>
+        <div class="relative p-10 sm:p-14 text-center">
+          <div class="text-4xl mb-6 opacity-20" style="color: var(--color-accent);">&ldquo;</div>
+          <p class="text-base sm:text-lg leading-relaxed max-w-xl mx-auto font-light" style="color: var(--color-surface);">
+            Whether shaping hot metal at the anvil or materializing a CAD model layer by layer, the satisfaction of turning an idea into a physical object remains the same. The metalworker in me never left &mdash; he just learned new tools.
+          </p>
+          <div class="mt-6 flex items-center justify-center gap-3">
+            <div class="w-8 h-px" style="background: var(--color-accent);"></div>
+            <span class="text-xs font-mono" style="color: var(--color-accent);">R.D.</span>
+            <div class="w-8 h-px" style="background: var(--color-accent);"></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>

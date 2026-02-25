@@ -5,40 +5,47 @@ import { siteConfig } from "../config";
 
 <Layout title="Professional" currentPage="/professional/">
   <!-- ═══ RESEARCH ═══ -->
-  <section class="pt-8 pb-16 px-4">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="reveal text-3xl font-bold tracking-tight mb-10" style="color: var(--color-primary-dark);">Research</h2>
+  <section class="pt-12 pb-20 px-4">
+    <div class="max-w-5xl mx-auto">
+      <div class="reveal section-label mb-3">Current Position</div>
+      <h2 class="reveal text-3xl sm:text-4xl font-bold tracking-tight mb-4" style="color: var(--color-primary-dark);">Research</h2>
+      <div class="accent-divider reveal mb-12"></div>
 
-      <!-- Current Position -->
-      <div class="reveal card-hover rounded-xl p-8 mb-6" style="background-color: var(--color-surface);">
-        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
+      <!-- Current Position - featured card -->
+      <div class="reveal glass-card-solid p-8 sm:p-10 mb-6 relative overflow-hidden">
+        <!-- Accent top border -->
+        <div class="absolute top-0 left-0 right-0 h-1" style="background: linear-gradient(90deg, var(--color-accent), var(--color-accent), transparent);"></div>
+
+        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-6">
           <div>
-            <h3 class="text-xl font-bold" style="color: var(--color-primary-dark);">{siteConfig.research.current.institution}</h3>
-            <p class="text-sm font-medium" style="color: var(--color-primary-light);">{siteConfig.research.current.department}</p>
+            <h3 class="text-2xl font-bold mb-1" style="color: var(--color-primary-dark);">{siteConfig.research.current.institution}</h3>
+            <p class="text-sm" style="color: var(--color-primary-light);">{siteConfig.research.current.department}</p>
           </div>
-          <span class="text-xs font-mono px-3 py-1 rounded-full whitespace-nowrap self-start" style="background: var(--color-accent); color: var(--color-primary-dark);">
-            {siteConfig.research.current.role}
-          </span>
+          <div class="flex flex-col items-start sm:items-end gap-2">
+            <span class="text-xs font-mono font-bold px-4 py-1.5 rounded-lg" style="background: var(--color-accent); color: var(--color-primary-dark);">
+              {siteConfig.research.current.role}
+            </span>
+            <span class="text-xs font-mono" style="color: var(--color-primary-light);">{siteConfig.research.current.period}</span>
+          </div>
         </div>
-        <p class="text-xs font-mono mb-5" style="color: var(--color-primary-light);">{siteConfig.research.current.period}</p>
 
-        <h4 class="text-xs uppercase tracking-widest font-bold mb-3" style="color: var(--color-primary-light);">Focus Areas</h4>
-        <div class="flex flex-wrap gap-2 mb-6">
+        <h4 class="section-label mb-4">Focus Areas</h4>
+        <div class="flex flex-wrap gap-2 mb-8">
           {siteConfig.research.current.focus.map((area) => (
-            <span class="skill-tag text-xs px-3 py-1 rounded-full" style="background: var(--color-surface-light); color: var(--color-primary);">
+            <span class="skill-tag text-xs px-4 py-1.5 rounded-lg font-medium" style="background: var(--color-surface); color: var(--color-primary);">
               {area}
             </span>
           ))}
         </div>
 
-        <h4 class="text-xs uppercase tracking-widest font-bold mb-3" style="color: var(--color-primary-light);">Awards</h4>
-        <div class="space-y-2">
+        <h4 class="section-label mb-4">Awards</h4>
+        <div class="space-y-3">
           {siteConfig.research.current.awards.map((award) => (
-            <div class="flex items-start gap-3 p-3 rounded-lg" style="background: rgba(171, 219, 149, 0.1);">
-              <span class="text-lg leading-none mt-0.5">&#9733;</span>
+            <div class="flex items-start gap-4 p-4 rounded-xl" style="background: var(--color-accent-dim);">
+              <div class="shrink-0 w-10 h-10 rounded-lg flex items-center justify-center text-lg" style="background: var(--color-accent); color: var(--color-primary-dark);">&#9733;</div>
               <div>
-                <p class="text-sm font-semibold" style="color: var(--color-primary-dark);">{award.title} &mdash; {award.venue}</p>
-                <p class="text-xs" style="color: var(--color-primary-light);">{award.paper}</p>
+                <p class="text-sm font-bold" style="color: var(--color-primary-dark);">{award.title} &mdash; {award.venue}</p>
+                <p class="text-xs mt-0.5" style="color: var(--color-primary-light);">{award.paper}</p>
               </div>
             </div>
           ))}
@@ -46,45 +53,62 @@ import { siteConfig } from "../config";
       </div>
 
       <!-- PhD -->
-      <div class="reveal card-hover rounded-xl p-8 mb-12" style="background-color: var(--color-surface);">
-        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
-          <h3 class="text-xl font-bold" style="color: var(--color-primary-dark);">PhD (External)</h3>
+      <div class="reveal glass-card-solid p-8 mb-20 relative overflow-hidden">
+        <div class="absolute top-0 left-0 right-0 h-1" style="background: linear-gradient(90deg, var(--color-primary-light), transparent);"></div>
+        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4">
+          <div>
+            <h3 class="text-xl font-bold mb-1" style="color: var(--color-primary-dark);">PhD (External)</h3>
+            <p class="text-sm" style="color: var(--color-primary);">{siteConfig.research.phd.institution}</p>
+            <p class="text-sm" style="color: var(--color-primary-light);">{siteConfig.research.phd.chair}</p>
+          </div>
           <span class="text-xs font-mono" style="color: var(--color-primary-light);">{siteConfig.research.phd.period}</span>
         </div>
-        <p class="text-sm font-medium mb-1" style="color: var(--color-primary);">{siteConfig.research.phd.institution}</p>
-        <p class="text-sm" style="color: var(--color-primary-light);">{siteConfig.research.phd.chair}</p>
-        <p class="text-sm" style="color: var(--color-primary-light);">Advisor: {siteConfig.research.phd.advisor}</p>
-        <p class="text-sm font-medium mt-2" style="color: var(--color-accent);">Topic: {siteConfig.research.phd.topic}</p>
+        <p class="text-xs" style="color: var(--color-primary-light);">Advisor: {siteConfig.research.phd.advisor}</p>
+        <div class="mt-3 inline-block px-4 py-1.5 rounded-lg" style="background: var(--color-accent-dim);">
+          <p class="text-sm font-semibold" style="color: var(--color-accent);">Topic: {siteConfig.research.phd.topic}</p>
+        </div>
       </div>
 
       <!-- ═══ INDUSTRY ═══ -->
-      <h2 class="reveal text-3xl font-bold tracking-tight mb-10" style="color: var(--color-primary-dark);">Industry</h2>
-      <div class="space-y-4 mb-12">
+      <div class="reveal section-label mb-3">Experience</div>
+      <h2 class="reveal text-3xl sm:text-4xl font-bold tracking-tight mb-4" style="color: var(--color-primary-dark);">Industry</h2>
+      <div class="accent-divider reveal mb-12"></div>
+
+      <div class="space-y-4 mb-20">
         {siteConfig.industry.map((job, i) => (
-          <div class={`reveal card-hover rounded-xl p-6 stagger-${Math.min(i + 1, 6)}`} style="background-color: var(--color-surface);">
-            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-2">
-              <h3 class="text-base font-bold" style="color: var(--color-primary-dark);">{job.company}</h3>
-              <span class="text-xs font-mono whitespace-nowrap" style="color: var(--color-primary-light);">{job.period}</span>
+          <div class={`reveal card-hover glass-card-solid p-6 sm:p-7 stagger-${Math.min(i + 1, 6)}`}>
+            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
+              <div>
+                <h3 class="text-lg font-bold" style="color: var(--color-primary-dark);">{job.company}</h3>
+                <p class="text-sm font-semibold" style="color: var(--color-accent);">{job.role}</p>
+              </div>
+              <span class="text-xs font-mono whitespace-nowrap shrink-0" style="color: var(--color-primary-light);">{job.period}</span>
             </div>
-            <p class="text-sm font-medium mb-1" style="color: var(--color-accent);">{job.role}</p>
-            {job.department && <p class="text-xs mb-1" style="color: var(--color-primary-light);">{job.department}</p>}
-            <p class="text-sm" style="color: var(--color-primary);">{job.description}</p>
+            {job.department && <p class="text-xs mb-2 font-mono" style="color: var(--color-primary-light);">{job.department}</p>}
+            <p class="text-sm leading-relaxed" style="color: var(--color-primary);">{job.description}</p>
           </div>
         ))}
       </div>
 
       <!-- ═══ EDUCATION ═══ -->
-      <h2 class="reveal text-3xl font-bold tracking-tight mb-10" style="color: var(--color-primary-dark);">Education</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div class="reveal section-label mb-3">Academic</div>
+      <h2 class="reveal text-3xl sm:text-4xl font-bold tracking-tight mb-4" style="color: var(--color-primary-dark);">Education</h2>
+      <div class="accent-divider reveal mb-12"></div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
         {siteConfig.education.map((edu, i) => (
-          <div class={`reveal card-hover rounded-xl p-6 stagger-${Math.min(i + 1, 6)}`} style="background-color: var(--color-surface);">
-            <h3 class="text-base font-bold mb-1" style="color: var(--color-primary-dark);">{edu.degree}</h3>
-            <p class="text-sm" style="color: var(--color-primary);">{edu.field}</p>
+          <div class={`reveal card-hover glass-card-solid p-6 stagger-${Math.min(i + 1, 6)}`}>
+            <div class="flex items-start justify-between gap-3 mb-3">
+              <h3 class="text-base font-bold leading-snug" style="color: var(--color-primary-dark);">{edu.degree}</h3>
+              {edu.grade && (
+                <span class="shrink-0 text-xs font-bold font-mono px-2.5 py-1 rounded-lg" style="background: var(--color-accent-dim); color: var(--color-accent);">
+                  {edu.grade}
+                </span>
+              )}
+            </div>
+            <p class="text-sm mb-0.5" style="color: var(--color-primary);">{edu.field}</p>
             <p class="text-sm" style="color: var(--color-primary-light);">{edu.school}</p>
-            <p class="text-xs font-mono mt-2" style="color: var(--color-primary-light);">{edu.period}</p>
-            {edu.grade && (
-              <p class="text-xs font-bold mt-1" style="color: var(--color-accent);">Grade: {edu.grade}</p>
-            )}
+            <p class="text-xs font-mono mt-3" style="color: var(--color-primary-light);">{edu.period}</p>
             {edu.advisor && (
               <p class="text-xs mt-1" style="color: var(--color-primary-light);">Advisor: {edu.advisor}</p>
             )}
