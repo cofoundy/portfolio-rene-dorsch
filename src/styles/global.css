@@ -9,9 +9,9 @@
   --color-primary-dark: #2E2A27;
   --color-primary: #3F3633;
   --color-primary-light: #6B6460;
-  --color-accent: #ABDB95;
-  --color-accent-dim: rgba(171, 219, 149, 0.15);
-  --color-accent-glow: rgba(171, 219, 149, 0.25);
+  --color-accent: #558d3c;
+  --color-accent-dim: rgba(85, 141, 60, 0.15);
+  --color-accent-glow: rgba(85, 141, 60, 0.25);
   --color-surface: #C8CECC;
   --color-surface-light: #F0F2F1;
   --color-glass: rgba(240, 242, 241, 0.7);
@@ -150,8 +150,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @keyframes glowPulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(171, 219, 149, 0); }
-  50% { box-shadow: 0 0 40px 8px rgba(171, 219, 149, 0.15); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(85, 141, 60, 0); }
+  50% { box-shadow: 0 0 40px 8px rgba(85, 141, 60, 0.15); }
 }
 
 .hero-photo {
@@ -250,7 +250,7 @@ h1, h2, h3, h4, h5, h6 {
   background-color: var(--color-accent) !important;
   color: var(--color-primary-dark) !important;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(171, 219, 149, 0.3);
+  box-shadow: 0 4px 12px rgba(85, 141, 60, 0.3);
 }
 
 /* ═══ PUBLICATION CARD ═══ */
@@ -280,9 +280,9 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--color-primary-dark);
 }
 .nav-pill.active {
-  background-color: var(--color-primary-dark);
-  color: var(--color-surface-light);
-  box-shadow: 0 2px 8px rgba(46, 42, 39, 0.2);
+  background-color: var(--color-accent);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(85, 141, 60, 0.3);
 }
 
 /* ═══ DIVIDER ═══ */

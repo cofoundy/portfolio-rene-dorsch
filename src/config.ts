@@ -11,7 +11,7 @@ export const siteConfig = {
     primaryDark: "#2E2A27",
     primary: "#3F3633",
     primaryLight: "#6B6460",
-    accent: "#ABDB95",
+    accent: "#558d3c",
     surface: "#C8CECC",
     surfaceLight: "#F0F2F1",
   },
@@ -41,15 +41,16 @@ export const siteConfig = {
   skills: [
     {
       category: "Semantic Web",
-      items: ["RDF", "SPARQL", "SHACL", "OWL", "Ontologies", "GraphDB", "Knowledge Graphs"],
+      description: "Building structured knowledge representations for machine-understandable data on the web.",
+      items: ["RDF", "SPARQL", "SHACL", "OWL", "Ontologies", "Triple Store", "Knowledge Graphs", "RML Mapping", "Linked Data"],
     },
     {
-      category: "IoT & WoT",
+      category: "Internet of Things",
       items: ["Web of Things", "Bluetooth GATT", "Solid Protocol", "MQTT", "Thing Descriptions"],
     },
     {
-      category: "ML & AI",
-      items: ["LLMs", "Named Entity Recognition", "Process Mining", "RAG", "Knowledge Graph QA"],
+      category: "Artificial Intelligence",
+      items: ["LLMs", "VLMs", "Agents", "Named Entity Recognition", "Process Mining", "RAG", "Knowledge Graph QA"],
     },
     {
       category: "Programming",
@@ -61,7 +62,7 @@ export const siteConfig = {
     },
     {
       category: "Data & Tools",
-      items: ["Dataiku", "FlexRML", "RML Mapping", "Git", "Docker"],
+      items: ["Dataiku", "Git", "Docker"],
     },
   ],
 
@@ -79,7 +80,7 @@ export const siteConfig = {
     ],
     work: [
       { year: 2007, label: "Metallbau Dorsch GmbH", detail: "Apprentice & Metalworker", endYear: 2015 },
-      { year: 2017, label: "FutureLng", detail: "Student Research Assistant", endYear: 2018 },
+      { year: 2017, label: "FutureIng", detail: "Student Research Assistant", endYear: 2018 },
       { year: 2018, label: "Fraunhofer SCS", detail: "Student RA — Knowledge Management", endYear: 2021 },
       { year: 2019, label: "High-Octane Motorsports", detail: "Component Lead — Pedal Assembly", endYear: 2022 },
       { year: 2021, label: "Siemens Smart Infrastructure", detail: "QM Internship — Amberg", endYear: 2021 },
@@ -101,7 +102,7 @@ export const siteConfig = {
       department: "Dataspaces and IoT Solutions",
       role: "Research Associate",
       period: "Mar 2022 – Present",
-      focus: ["Knowledge Engineering", "Web of Things (WoT)", "Solid Protocol", "Knowledge Graphs & Ontologies", "LLM-based NER/NEL"],
+      focus: ["Knowledge Engineering", "Web of Things (WoT)", "Solid Protocol", "Knowledge Graphs", "Ontologies", "LLM-based NER/NEL", "Linked Data"],
       awards: [
         { title: "Best Paper Award", venue: "KGSWC 2024", paper: "Enriching RDF Data with LLM-Based NER and Linking" },
         { title: "Best Workshop Paper", venue: "ICPM 2023", paper: "Breaking Down Barriers with Knowledge Graphs" },
@@ -138,10 +139,10 @@ export const siteConfig = {
       description: "Formula Student racing team. Responsible for pedal assembly subsystem design and manufacturing.",
     },
     {
-      company: "FutureLng",
+      company: "FutureIng",
       role: "Student Research Assistant",
       period: "Jul 2017 – Jun 2018",
-      description: "Market research for technical systems in the LNG industry.",
+      description: "Market research in general for the industry.",
     },
     {
       company: "Metallbau Dorsch GmbH",
@@ -187,31 +188,42 @@ export const siteConfig = {
     {
       year: 2025,
       papers: [
-        { title: "Impact of Knowledge Graph Representations on Question Answering with Language Models", venue: "CAiSE Workshops", authors: "D. Henselmann, R. Dorsch, A. Harth" },
-        { title: "COMPASS: A Process Mining-based Methodology for Prompt Optimization of Large Language Model Agents", venue: "HybridAIMS+CAI", authors: "R. Dorsch, D. Henselmann, A. Harth" },
-        { title: "Mapping by Example: Towards an RML Mapping Reverse Engineering Pipeline", venue: "KGCW@ESWC", authors: "M. Freund, R. Dorsch, S. Schmid, A. Harth" },
+        { title: "Impact of Knowledge Graph Representations on Question Answering with Language Models", venue: "CAiSE Workshops", authors: "D. Henselmann, R. Dorsch, A. Harth", url: "https://doi.org/10.1007/978-3-031-94931-9_7" },
+        { title: "COMPASS: A Process Mining-based Methodology for Prompt Optimization of Large Language Model Agents", venue: "HybridAIMS+CAI", authors: "R. Dorsch, D. Henselmann, A. Harth", url: "https://ceur-ws.org/Vol-3996/paper-5.pdf" },
+        { title: "Mapping by Example: Towards an RML Mapping Reverse Engineering Pipeline", venue: "KGCW@ESWC", authors: "M. Freund, R. Dorsch, S. Schmid, A. Harth", url: "https://ceur-ws.org/Vol-3999/paper5.pdf" },
       ],
     },
     {
       year: 2024,
       papers: [
-        { title: "FlexRML: A Flexible and Memory Efficient Knowledge Graph Materializer", venue: "ESWC", authors: "M. Freund, R. Dorsch, S. Schmid, A. Harth" },
-        { title: "FAIR Internet of Things Data: Enabling Process Optimization at Munich Airport", venue: "ESWC Satellite Events", authors: "R. Dorsch, M. Freund, J. Rott, A. Harth" },
-        { title: "EVErPREP: Towards an Event Knowledge Graph Enhanced Workflow Model for Event Log Preparation", venue: "ICPM Workshops", authors: "R. Dorsch, P. Filipp, A. Harth" },
-        { title: "Vibration-Based Operating Status Monitoring of a Production Line with Low-Cost IoT Devices", venue: "APMS", authors: "R. Dorsch, S. Meckler, P. Filipp" },
-        { title: "RetroWoT: A Method to Integrate Brownfield Devices in the Web of Things", venue: "IoT", authors: "R. Dorsch, M. Freund, K. Marnitt, A. Harth" },
-        { title: "Analyzing Breaking Changes in IoT Systems: A Taxonomy and Empirical Study on System Stability and Longevity", venue: "IoT", authors: "R. Dorsch, M. Freund, A. Harth" },
-        { title: "Enriching RDF Data with LLM-Based Named Entity Recognition and Linking on Embedded Natural Language Annotations", venue: "KGSWC", authors: "R. Dorsch, M. Freund, S. Schmid, T. Wehr, A. Harth", award: "Best Paper Award" },
-        { title: "AutOnto: Towards A Semi-Automated Ontology Engineering Methodology", venue: "KGSWC", authors: "R. Dorsch, K. Ascencion Arevalo, S. Ambre" },
-        { title: "Performance Results of FlexRML in the KGCW Challenge 2024", venue: "KGCW@ESWC", authors: "R. Dorsch" },
+        { title: "FlexRML: A Flexible and Memory Efficient Knowledge Graph Materializer", venue: "ESWC", authors: "M. Freund, R. Dorsch, S. Schmid, A. Harth", url: "https://doi.org/10.1007/978-3-031-60635-9_3" },
+        { title: "FAIR Internet of Things Data: Enabling Process Optimization at Munich Airport", venue: "ESWC Satellite Events", authors: "R. Dorsch, M. Freund, J. Rott, A. Harth", url: "https://doi.org/10.1007/978-3-031-78952-6_16" },
+        { title: "EVErPREP: Towards an Event Knowledge Graph Enhanced Workflow Model for Event Log Preparation", venue: "ICPM Workshops", authors: "R. Dorsch, P. Filipp, A. Harth", url: "https://doi.org/10.1007/978-3-031-82225-4_3" },
+        { title: "Vibration-Based Operating Status Monitoring of a Production Line with Low-Cost IoT Devices", venue: "APMS", authors: "R. Dorsch, S. Meckler, P. Filipp", url: "https://doi.org/10.1007/978-3-031-71637-9_29" },
+        { title: "RetroWoT: A Method to Integrate Brownfield Devices in the Web of Things", venue: "IoT", authors: "R. Dorsch, M. Freund, K. Marnitt, A. Harth", url: "https://doi.org/10.1145/3703790.3703799" },
+        { title: "Analyzing Breaking Changes in IoT Systems: A Taxonomy and Empirical Study on System Stability and Longevity", venue: "IoT", authors: "R. Dorsch, M. Freund, A. Harth", url: "https://doi.org/10.1145/3703790.3703835" },
+        { title: "Enriching RDF Data with LLM-Based Named Entity Recognition and Linking on Embedded Natural Language Annotations", venue: "KGSWC", authors: "R. Dorsch, M. Freund, S. Schmid, T. Wehr, A. Harth", award: "Best Paper Award", url: "https://doi.org/10.1007/978-3-031-81221-7_8" },
+        { title: "AutOnto: Towards A Semi-Automated Ontology Engineering Methodology", venue: "KGSWC", authors: "R. Dorsch, K. Ascencion Arevalo, S. Ambre", url: "https://doi.org/10.1007/978-3-031-81221-7_16" },
+        { title: "Performance Results of FlexRML in the KGCW Challenge 2024", venue: "KGCW@ESWC", authors: "M. Freund, R. Dorsch", url: "https://ceur-ws.org/Vol-3718/paper9.pdf" },
       ],
     },
     {
       year: 2023,
       papers: [
-        { title: "Breaking Down Barriers with Knowledge Graphs: Data Integration for Cross-Organizational Process Mining", venue: "ICPM Workshops", authors: "R. Dorsch, J. Rott, M. Freund, M. Böhm, A. Harth, H. Krcmar", award: "Best Workshop Paper Award" },
-        { title: "WoT2Pod: An Architecture enabling an Edge-to-Cloud Continuum", venue: "IoT", authors: "R. Dorsch, M. Freund, J. Fries, P. Schiller, A. Harth" },
+        { title: "Breaking Down Barriers with Knowledge Graphs: Data Integration for Cross-Organizational Process Mining", venue: "ICPM Workshops", authors: "R. Dorsch, J. Rott, M. Freund, M. Böhm, A. Harth, H. Krcmar", award: "Best Workshop Paper Award", url: "https://doi.org/10.1007/978-3-031-56107-8_38" },
+        { title: "WoT2Pod: An Architecture enabling an Edge-to-Cloud Continuum", venue: "IoT", authors: "R. Dorsch, M. Freund, J. Fries, P. Schiller, A. Harth", url: "https://doi.org/10.1145/3627050.3627063" },
       ],
+    },
+  ],
+
+  // Blog posts (Writer page)
+  blog: [
+    {
+      title: "From Metalworker to PhD Researcher: My Non-Linear Career Path",
+      excerpt: "When I tell people I started as a metalworker apprentice and ended up doing a PhD in Semantic Web and IoT, the usual reaction is surprise. But looking back, the path makes more sense than it seems. Working with your hands teaches you problem-solving in ways no textbook can — and that foundation shaped everything I've done since. In this post, I share the key turning points that led me from the workshop floor to the research lab.",
+      date: "2025-01-15",
+      readTime: "8 min read",
+      tags: ["Career", "Personal"],
     },
   ],
 
