@@ -203,6 +203,7 @@ export const siteConfig = {
         { title: "Analyzing Breaking Changes in IoT Systems: A Taxonomy and Empirical Study on System Stability and Longevity", venue: "IoT", authors: "R. Dorsch, M. Freund, A. Harth" },
         { title: "Enriching RDF Data with LLM-Based Named Entity Recognition and Linking on Embedded Natural Language Annotations", venue: "KGSWC", authors: "R. Dorsch, M. Freund, S. Schmid, T. Wehr, A. Harth", award: "Best Paper Award" },
         { title: "AutOnto: Towards A Semi-Automated Ontology Engineering Methodology", venue: "KGSWC", authors: "R. Dorsch, K. Ascencion Arevalo, S. Ambre" },
+        { title: "Performance Results of FlexRML in the KGCW Challenge 2024", venue: "KGCW@ESWC", authors: "R. Dorsch" },
       ],
     },
     {
