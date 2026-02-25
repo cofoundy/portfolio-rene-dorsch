@@ -1,0 +1,231 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════════
+   RENÉ DORSCH — Premium Portfolio Styles
+   Palette: warm charcoal + organic green on cool grey
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+  --color-primary-dark: #2E2A27;
+  --color-primary: #3F3633;
+  --color-primary-light: #6B6460;
+  --color-accent: #ABDB95;
+  --color-surface: #C8CECC;
+  --color-surface-light: #F0F2F1;
+
+  --ease-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
+
+  --duration-fast: 200ms;
+  --duration-normal: 400ms;
+  --duration-slow: 600ms;
+}
+
+body {
+  font-family: 'IBM Plex Sans', sans-serif;
+  color: var(--color-primary);
+  background-color: var(--color-surface-light);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SCROLL REVEAL ANIMATIONS
+   ═══════════════════════════════════════════════════════════ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity var(--duration-slow) var(--ease-out),
+              transform var(--duration-slow) var(--ease-out);
+}
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-24px);
+  transition: opacity var(--duration-slow) var(--ease-out),
+              transform var(--duration-slow) var(--ease-out);
+}
+.reveal-left.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity var(--duration-slow) var(--ease-bounce),
+              transform var(--duration-slow) var(--ease-bounce);
+}
+.reveal-scale.revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.stagger-1 { transition-delay: 80ms; }
+.stagger-2 { transition-delay: 160ms; }
+.stagger-3 { transition-delay: 240ms; }
+.stagger-4 { transition-delay: 320ms; }
+.stagger-5 { transition-delay: 400ms; }
+.stagger-6 { transition-delay: 480ms; }
+
+/* ═══════════════════════════════════════════════════════════
+   HERO ANIMATIONS
+   ═══════════════════════════════════════════════════════════ */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.hero-photo { animation: scaleIn 0.7s var(--ease-bounce) 0.1s both; }
+.hero-title { animation: fadeUp 0.5s var(--ease-out) 0.3s both; }
+.hero-subtitle { animation: fadeUp 0.5s var(--ease-out) 0.4s both; }
+.hero-intro { animation: fadeUp 0.5s var(--ease-out) 0.5s both; }
+.hero-social { animation: fadeUp 0.5s var(--ease-out) 0.6s both; }
+.hero-stats { animation: fadeUp 0.5s var(--ease-out) 0.7s both; }
+.hero-nav { animation: fadeUp 0.5s var(--ease-out) 0.8s both; }
+
+/* ═══════════════════════════════════════════════════════════
+   GITGRAPH TIMELINE
+   ═══════════════════════════════════════════════════════════ */
+
+@keyframes drawLine {
+  from { stroke-dashoffset: var(--line-length, 1000); }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes popIn {
+  from { transform: scale(0); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.gitgraph-line {
+  stroke-dasharray: var(--line-length, 1000);
+  stroke-dashoffset: var(--line-length, 1000);
+}
+
+.gitgraph-line.animate {
+  animation: drawLine 1.5s var(--ease-out) forwards;
+}
+
+.gitgraph-node {
+  transform: scale(0);
+  opacity: 0;
+}
+
+.gitgraph-node.animate {
+  animation: popIn 0.3s var(--ease-bounce) forwards;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   MICRO-INTERACTIONS
+   ═══════════════════════════════════════════════════════════ */
+
+.card-hover {
+  transition: transform var(--duration-normal) var(--ease-out),
+              box-shadow var(--duration-normal) var(--ease-out);
+}
+.card-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.1);
+}
+
+.link-hover {
+  position: relative;
+  text-decoration: none;
+}
+.link-hover::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background-color: var(--color-accent);
+  transition: width var(--duration-normal) var(--ease-out);
+}
+.link-hover:hover::after { width: 100%; }
+
+.icon-hover {
+  transition: transform var(--duration-fast) var(--ease-bounce),
+              color var(--duration-fast) var(--ease-out);
+}
+.icon-hover:hover {
+  transform: scale(1.12);
+  color: var(--color-accent);
+}
+
+.skill-tag {
+  transition: background-color var(--duration-fast) var(--ease-out),
+              color var(--duration-fast) var(--ease-out);
+}
+.skill-tag:hover {
+  background-color: var(--color-accent);
+  color: var(--color-primary-dark);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PUBLICATION CARD
+   ═══════════════════════════════════════════════════════════ */
+
+.pub-card {
+  border-left: 3px solid transparent;
+  transition: border-color var(--duration-fast) var(--ease-out),
+              background-color var(--duration-fast) var(--ease-out);
+}
+.pub-card:hover {
+  border-left-color: var(--color-accent);
+  background-color: rgba(171, 219, 149, 0.06);
+}
+.pub-card.award {
+  border-left-color: var(--color-accent);
+  background-color: rgba(171, 219, 149, 0.08);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   NAV PILLS
+   ═══════════════════════════════════════════════════════════ */
+
+.nav-pill {
+  transition: background-color var(--duration-fast) var(--ease-out),
+              color var(--duration-fast) var(--ease-out);
+}
+.nav-pill:hover {
+  background-color: var(--color-accent);
+  color: var(--color-primary-dark);
+}
+.nav-pill.active {
+  background-color: var(--color-primary);
+  color: var(--color-surface-light);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SMOOTH SCROLL + ACCESSIBILITY
+   ═══════════════════════════════════════════════════════════ */
+
+html { scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

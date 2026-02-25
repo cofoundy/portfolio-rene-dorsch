@@ -1,0 +1,74 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { siteConfig } from "../config";
+
+const totalPapers = siteConfig.publications.reduce((sum, yr) => sum + yr.papers.length, 0);
+const totalAwards = siteConfig.publications.reduce(
+  (sum, yr) => sum + yr.papers.filter((p) => p.award).length,
+  0
+);
+const venues = new Set(siteConfig.publications.flatMap((yr) => yr.papers.map((p) => p.venue)));
+---
+
+<Layout title="Writer" currentPage="/writer/">
+  <section class="pt-8 pb-16 px-4">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="reveal text-3xl font-bold tracking-tight mb-10" style="color: var(--color-primary-dark);">Publications</h2>
+
+      <!-- Stats -->
+      <div class="reveal flex flex-wrap justify-center gap-10 mb-12 py-6 rounded-xl" style="background-color: var(--color-surface);">
+        <div class="text-center">
+          <div class="text-3xl font-bold" style="font-family: 'Space Grotesk'; color: var(--color-primary-dark);">{totalPapers}</div>
+          <div class="text-xs uppercase tracking-widest" style="color: var(--color-primary-light);">Papers</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold" style="font-family: 'Space Grotesk'; color: var(--color-accent);">{totalAwards}</div>
+          <div class="text-xs uppercase tracking-widest" style="color: var(--color-primary-light);">Awards</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold" style="font-family: 'Space Grotesk'; color: var(--color-primary-dark);">{venues.size}+</div>
+          <div class="text-xs uppercase tracking-widest" style="color: var(--color-primary-light);">Venues</div>
+        </div>
+      </div>
+
+      <!-- Publications by year -->
+      {siteConfig.publications.map((yearGroup) => (
+        <div class="mb-10">
+          <h3 class="reveal text-lg font-bold font-mono mb-4" style="color: var(--color-primary-dark);">{yearGroup.year}</h3>
+          <div class="space-y-3">
+            {yearGroup.papers.map((paper, i) => (
+              <div class={`reveal pub-card rounded-lg p-5 stagger-${Math.min(i + 1, 6)} ${paper.award ? 'award' : ''}`} style="background-color: var(--color-surface-light);">
+                <div class="flex items-start gap-3">
+                  <div class="flex-1">
+                    <h4 class="text-sm font-semibold leading-snug mb-1" style="color: var(--color-primary-dark);">
+                      {paper.title}
+                    </h4>
+                    <p class="text-xs font-mono mb-1" style="color: var(--color-accent);">{paper.venue}</p>
+                    <p class="text-xs" style="color: var(--color-primary-light);">{paper.authors}</p>
+                    {paper.award && (
+                      <span class="inline-block mt-2 text-xs font-bold px-2 py-0.5 rounded-full" style="background: var(--color-accent); color: var(--color-primary-dark);">
+                        &#9733; {paper.award}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+
+      <!-- Key Venues -->
+      <div class="reveal mt-8 text-center">
+        <p class="text-xs uppercase tracking-widest font-bold mb-3" style="color: var(--color-primary-light);">Key Venues</p>
+        <div class="flex flex-wrap justify-center gap-2">
+          {["ESWC", "ACM IoT", "ICPM", "KGSWC", "CAiSE", "APMS"].map((venue) => (
+            <span class="text-xs font-mono px-3 py-1 rounded-full" style="background: var(--color-surface); color: var(--color-primary);">
+              {venue}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

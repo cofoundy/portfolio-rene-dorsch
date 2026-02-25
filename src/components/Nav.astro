@@ -1,0 +1,27 @@
+---
+import { siteConfig } from "../config";
+
+interface Props {
+  currentPage?: string;
+}
+
+const { currentPage = "/" } = Astro.props;
+---
+
+<nav class="w-full py-6 px-4">
+  <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+    <a href="/" class="text-lg font-bold tracking-tight" style="font-family: 'Space Grotesk', sans-serif; color: var(--color-primary-dark);">
+      {siteConfig.name}
+    </a>
+    <div class="flex gap-2">
+      {siteConfig.pages.map((page) => (
+        <a
+          href={page.href}
+          class:list={["nav-pill px-4 py-1.5 rounded-full text-sm font-medium", { active: currentPage === page.href }]}
+        >
+          {page.label}
+        </a>
+      ))}
+    </div>
+  </div>
+</nav>
